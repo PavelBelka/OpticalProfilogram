@@ -76,7 +76,8 @@
             <MenuItem x:Name="settingMenu" 
                       Header="Настройки"></MenuItem>
             <MenuItem x:Name="exitMenu" 
-                      Header="Выход"></MenuItem>
+                      Header="Выход"
+                      Command="{Binding CloseApplicationCommand}"></MenuItem>
         </Menu>
         <Image Grid.Column="2" 
                HorizontalAlignment="Left" 
