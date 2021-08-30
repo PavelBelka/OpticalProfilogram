@@ -11,6 +11,7 @@ namespace dissertation.ViewModels
         /// <summary>Текст лога</summary>
         public string Text_log
         {
+            get => _Text_log;
             set => Set(ref _Text_log, value);
         }
 
@@ -19,14 +20,12 @@ namespace dissertation.ViewModels
         private bool CanCloseApplicationCommandExecute(object p) => true;
  
 
-        private void OnCloseApplicationCommandExecute(object p)
-        {
-            Application.Current.Shutdown();
-        }
+        private void OnCloseApplicationCommandExecute(object p) => Application.Current.Shutdown();
 
         public MainWindowViewModel()
         {
             CloseApplicationCommand = new ActionCommand(OnCloseApplicationCommandExecute, CanCloseApplicationCommandExecute);
+            Text_log = "Тест лога";
         }
     }
 }
