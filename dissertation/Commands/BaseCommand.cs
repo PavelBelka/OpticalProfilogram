@@ -3,7 +3,7 @@ using System.Windows.Input;
 
 namespace dissertation.Commands
 {
-    internal abstract class Command : ICommand
+    internal abstract class BaseCommand : ICommand
     {
         public event EventHandler CanExecuteChanged
         {

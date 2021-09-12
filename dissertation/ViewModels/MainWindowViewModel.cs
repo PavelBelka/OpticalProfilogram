@@ -4,7 +4,7 @@ using System.Windows.Input;
 
 namespace dissertation.ViewModels
 {
-    internal class MainWindowViewModel : ViewModel
+    internal class MainWindowViewModel : BaseViewModel
     {
         private string _Text_log;
 

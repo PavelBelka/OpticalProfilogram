@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace dissertation.Models
 {
-    class ImageProcessing
+    internal class ImageProcessing
     {
         public ImageProcessing() { }
 
