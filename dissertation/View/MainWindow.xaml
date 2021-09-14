@@ -5,12 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:dissertation.ViewModels"
         xmlns:cmd="clr-namespace:dissertation.Commands"
-        xmlns:local="clr-namespace:dissertation"
+        xmlns:local="clr-namespace:dissertation" 
         mc:Ignorable="d"
-        Title="MainWindow" Height="480" Width="720" MinHeight="480" MinWidth="720" FontFamily="Times New Roman" FontSize="14" ResizeMode="CanMinimize">
-    <Window.DataContext>
-        <vm:MainWindowViewModel/>
-    </Window.DataContext>
+        Title="MainWindow" Height="480" Width="820" MinHeight="480" MinWidth="720" FontFamily="Times New Roman" FontSize="14" ResizeMode="CanMinimize">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="20"></RowDefinition>
@@ -22,7 +19,7 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="80"></ColumnDefinition>
             <ColumnDefinition Width="160"></ColumnDefinition>
-            <ColumnDefinition Width="480"></ColumnDefinition>
+            <ColumnDefinition Width="580"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <TextBlock 
             Grid.Row="1" 
@@ -54,7 +51,8 @@
                 Grid.ColumnSpan="2" 
                 Margin="10,5" 
                 FontFamily="Times New Roman" 
-                FontSize="14"/>
+                FontSize="14"
+                Command="{Binding GetFrameCommand}"/>
         <TextBox x:Name="tbOutputLog"
                  Text="{Binding Text_log}"
                  Grid.Row="4" 
@@ -76,13 +74,12 @@
                       Command="{Binding CloseApplicationCommand}"></MenuItem>
         </Menu>
         <Image Grid.Column="2" 
-               HorizontalAlignment="Left" 
                Height="414" 
-               Margin="10,5,5,10" 
+               Margin="10,5,20,0" 
                Grid.Row="1" 
-               Grid.RowSpan="5" 
-               VerticalAlignment="Top" 
-               Width="454" 
-               Grid.ColumnSpan="4"/>
+               Grid.RowSpan="4" 
+               VerticalAlignment="Top"
+               Source="{Binding Image_Box}" 
+               Stretch="Fill"/>
     </Grid>
 </Window>
