@@ -18,6 +18,7 @@ namespace dissertation.ViewModels
         private static extern int DeleteObject(IntPtr o);
 
         private Camera _camera;
+        private ImageProcessing _imgproc;
 
         private string _Text_log;
         private ImageSource _Image_Box;
@@ -48,7 +49,10 @@ namespace dissertation.ViewModels
 
         private void OnGetFrameCommandExecute(object p)
         {
-            Bitmap img = _camera.GetFrame().ToBitmap();
+            Mat img2 = _camera.GetFrame();
+            Mat proc = _imgproc.Binarization(img2);
+            //Bitmap img = _camera.GetFrame().ToBitmap();
+            Bitmap img = proc.ToBitmap();
             IntPtr ptr = img.GetHbitmap();
 
             BitmapSource bs = System.Windows.Interop.Imaging.CreateBitmapSourceFromHBitmap(
@@ -60,9 +64,10 @@ namespace dissertation.ViewModels
             Image_Box = bs;
         }
 
-        public MainWindowViewModel(Camera cam)
+        public MainWindowViewModel(Camera cam, ImageProcessing imgproc)
         {
             _camera = cam;
+            _imgproc = imgproc;
             CloseApplicationCommand = new ActionCommand(OnCloseApplicationCommandExecute, CanCloseApplicationCommandExecute);
             GetFrameCommand = new ActionCommand(OnGetFrameCommandExecute, CanGetFrameCommandExecute);
             Text_log = "Тест лога";

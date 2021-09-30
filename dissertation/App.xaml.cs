@@ -10,7 +10,8 @@ namespace dissertation
         {
             MainWindow view = new MainWindow();
             Camera camera = new Camera();
-            MainWindowViewModel viewModel = new MainWindowViewModel(camera);
+            ImageProcessing image = new ImageProcessing();
+            MainWindowViewModel viewModel = new MainWindowViewModel(camera, image);
             view.DataContext = viewModel;
             view.Show();
         }
